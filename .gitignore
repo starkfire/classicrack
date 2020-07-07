@@ -1,7 +1,7 @@
 # Python
 .venv/
 __pycache__
-ssc.egg-info
+classicrack.egg-info/
 build
 dist
 
