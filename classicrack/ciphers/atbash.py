@@ -1,4 +1,10 @@
 class Atbash:
+    """
+    Atbash implementation.
+    >>> ab = Atbash()
+    >>> ab.encode('zebra')
+    >>> ab.decode('avyizh')
+    """
 
     def encode(self, text: str):
         """
