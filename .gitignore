@@ -1,0 +1,9 @@
+# Python
+.venv/
+__pycache__
+ssc.egg-info
+build
+dist
+
+# VSCode
+.vscode
