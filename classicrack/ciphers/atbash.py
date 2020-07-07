@@ -2,7 +2,7 @@ class Atbash:
     """
     Atbash implementation.
     >>> ab = Atbash()
-    >>> ab.encode('zebra')
+    >>> ab.encode('zebras')
     >>> ab.decode('avyizh')
     """
 
