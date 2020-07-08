@@ -1,7 +1,7 @@
 from classicrack.ciphers import Atbash
 import unittest
 
-class TestCommon(unittest.TestCase):
+class TestAtbash(unittest.TestCase):
 
     def test_encode(self):
         self.assertEqual(Atbash().encode('zebras'), 'avyizh')

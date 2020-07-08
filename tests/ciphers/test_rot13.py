@@ -1,7 +1,7 @@
 from classicrack.ciphers import ROT13
 import unittest
 
-class TestCommon(unittest.TestCase):
+class TestROT13(unittest.TestCase):
 
     def test_encode(self):
         self.assertEqual(ROT13().encode('cheemsburmger'), 'purrzfoheztre')
