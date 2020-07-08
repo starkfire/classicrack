@@ -7,7 +7,7 @@ def use_unigram(text: str):
     which is the most frequently used letter in the english alphabet.
         text (str): ciphertext
     """
-    text = text.lower().replace(' ', '')
+    text = parse_text(text)
     most_frequent = most_frequent_char(text)
     shift = distance(most_frequent['char'], 'e')
     return shift_constant(text, shift)
@@ -17,7 +17,7 @@ def use_bigram(text: str):
     Cracks an input ciphertext by taking its bigrams and checking for shifted combinations of the bigram 'th'.
         text (str): ciphertext
     """
-    text = text.lower().replace(' ', '')
+    text = parse_text(text)
     ngrams = get_ngrams(text, 2)
     bigrams = common_bigrams()
     match = list(set(ngrams).intersection(bigrams))
@@ -32,7 +32,7 @@ def use_trigram(text: str):
     Cracks an input ciphertext by taking its trigrams and checking for shifted combinations of the trigram 'the'.
         text (str): ciphertext
     """
-    text = text.lower().replace(' ', '')
+    text = parse_text(text)
     ngrams = get_ngrams(text, 3)
     trigrams = common_trigrams()
     match = list(set(ngrams).intersection(trigrams))

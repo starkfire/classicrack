@@ -11,17 +11,17 @@ class Caesar:
     """
 
     def encode(self, text: str, shift: int):
-        return shift_constant(text.lower().replace(' ', ''), shift)
+        return shift_constant(parse_text(text), shift)
     
     def decode(self, text: str, shift: int):
-        return shift_constant(text.lower().replace(' ', ''), shift, decode=True)
+        return shift_constant(parse_text(text), shift, decode=True)
 
     def crack_bruteforce(self, text: str):
         values = [shift_constant(text, x, decode=True) for x in range(26)]
         return values
     
     def crack_ngram(self, text: str, n: int = 1):
-        text = text.lower().replace(' ', '')
+        text = parse_text(text)
 
         fa_strategy = {
             1: fa.use_unigram(text),

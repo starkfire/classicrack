@@ -1,3 +1,5 @@
+from classicrack.utils.common import parse_text
+
 class Atbash:
     """
     Atbash implementation.
@@ -11,7 +13,7 @@ class Atbash:
         Encode an input text using Atbash.
             text (str): input text
         """
-        text = text.lower().replace(' ', '')
+        text = parse_text(text)
         out = [chr(122 - ord(text[i]) + 97) for i in range(len(text))]
         return ''.join(str(x) for x in out)
     
@@ -20,6 +22,6 @@ class Atbash:
         Decode an input text using Atbash.
             text (str): input text
         """
-        text = text.lower().replace(' ', '')
+        text = parse_text(text)
         out = [chr(122 - ord(text[i]) + 97) for i in range(len(text))]
         return ''.join(str(x) for x in out)

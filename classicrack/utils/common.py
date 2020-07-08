@@ -1,16 +1,22 @@
 # utility functions for common tasks
 
+def parse_text(text: str):
+    """
+    Cleans the text.
+    """
+    return text.lower().replace(' ', '')
+
 def distance(x: chr, y: chr = 'e'):
     """
     Get the distance between two characters in the alphabet
     """
     return (ord(x) - ord(y)) % 26
 
-def most_frequent_char(txt: str):
+def most_frequent_char(text: str):
     """
     Gets the most frequent character on a given text
     """
-    txt = txt.lower().replace(' ', '')
+    txt = parse_text(text)
     freq = {}
     
     for x in txt:
@@ -20,11 +26,11 @@ def most_frequent_char(txt: str):
     
     return { 'char': freq[0][0], 'freq': freq[0][1] }
 
-def shift_constant(txt: str, shift: int, decode: bool = False):
+def shift_constant(text: str, shift: int, decode: bool = False):
     """
     Shifts all characters of an input text using a constant shift number.
     """
-    txt = txt.lower().replace(' ', '')
+    txt = parse_text(text)
     if (decode): shift = -shift
     out = [chr((ord(txt[i]) + shift - 97) % 26 + 97) for i in range(len(txt))]
     

@@ -1,12 +1,14 @@
 # utility functions for handling n-grams
 
+from classicrack.utils.common import parse_text
+
 def get_ngrams(text: str, n: int):
     """
     Returns a list of n-grams from an input text
         text (str): input text
         n (int): number of characters for each item
     """
-    text = text.lower().replace(' ', '')
+    text = parse_text(text)
     return [text[i: i + n] for i in range(len(text) - n + 1)]
 
 def shift_ngram(ngram: str, shift: int):
