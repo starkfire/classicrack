@@ -30,22 +30,13 @@ def get_ngram_shifted_combinations(ngram: str):
         ngrams.append(shift_ngram(ngram, x))
     return ngrams
 
-def get_common_ngrams(ngram_1: list, ngram_2: list):
+def get_intersecting_ngrams(ngram_1: list, ngram_2: list):
     """
-    Takes two lists of n-grams and returns their common n-grams.
+    Takes two lists of n-grams and returns their intersecting n-grams.
         ngram_1 (list): a list of n-grams
         ngram_2 (list): a list of n-grams
     """
     return list(set(ngram_1).intersection(ngram_2))
-
-def get_most_common_ngram(ngram_1: list, ngram_2: list):
-    """
-    Takes two lists of n-grams and returns the first, most common n-gram.
-        ngram_1 (list): a list of n-grams
-        ngram_2 (list): a list of n-grams
-    """
-    matches = get_common_ngrams(ngram_1, ngram_2)
-    return matches[0]
 
 def common_bigrams(bigram: str = 'th'):
     """
