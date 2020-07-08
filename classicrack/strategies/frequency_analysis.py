@@ -20,7 +20,7 @@ def use_bigram(text: str):
     text = text.lower().replace(' ', '')
     ngrams = get_ngrams(text, 2)
     bigrams = common_bigrams()
-    match = get_intersecting_ngrams(ngrams, bigrams)
+    match = list(set(ngrams).intersection(bigrams))
 
     if (len(match) != 0):
         return [shift_constant(text, distance(match[x][0], 't'), decode=True) for x in range(len(match))]
@@ -35,7 +35,7 @@ def use_trigram(text: str):
     text = text.lower().replace(' ', '')
     ngrams = get_ngrams(text, 3)
     trigrams = common_trigrams()
-    match = get_intersecting_ngrams(ngrams, trigrams)
+    match = list(set(ngrams).intersection(trigrams))
 
     if (len(match) != 0):
         return [shift_constant(text, distance(match[x][2], 'e'), decode=True) for x in range(len(match))]
