@@ -21,7 +21,6 @@ class Caesar:
         return values
     
     def crack_ngram(self, text: str, n: int = 1):
-        # TODO: function will sometimes return the correct value shifted one step backwards when n > 1
         text = text.lower().replace(' ', '')
 
         fa_strategy = {
