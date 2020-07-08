@@ -7,9 +7,6 @@ class TestNgrams(unittest.TestCase):
         target, n = 'cheemsburger', 2
         ngrams = get_ngrams(target, n)
         self.assertTrue(len(ngrams) == (len(target) - 1))
-    
-    def test_shift_ngram(self):
-        self.assertEqual(shift_ngram('th', 3), 'wk')
 
     def test_get_ngram_shifted_combinations(self):
         ngrams = get_ngram_shifted_combinations('th')
