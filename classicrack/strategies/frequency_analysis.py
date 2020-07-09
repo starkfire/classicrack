@@ -1,15 +1,15 @@
 from classicrack.utils.common import *
 from classicrack.utils.ngrams import *
 
-def use_unigram(text: str):
+def use_unigram(text: str, unigram: str = 'e'):
     """
-    Cracks an input ciphertext by taking its most frequent letter, and its distance to letter 'e',
-    which is the most frequently used letter in the english alphabet.
+    Cracks an input ciphertext based on a unigram (i.e. 'e').
         text (str): ciphertext
     """
+    if (len(unigram) != 1): raise ValueError
     text = parse_text(text)
     most_frequent = most_frequent_char(text)
-    shift = distance(most_frequent['char'], 'e')
+    shift = distance(most_frequent['char'], unigram)
     return shift_mono(text, shift)
 
 def use_bigram(text: str):
