@@ -1,5 +1,7 @@
 # utility functions for common tasks
 
+from math import gcd
+
 def parse_text(text: str):
     """
     Cleans the text.
@@ -26,7 +28,7 @@ def most_frequent_char(text: str):
     
     return { 'char': freq[0][0], 'freq': freq[0][1] }
 
-def shift_constant(text: str, shift: int, decode: bool = False):
+def shift_mono(text: str, shift: int, decode: bool = False):
     """
     Shifts all characters of an input text using a constant shift number.
     """
@@ -35,3 +37,16 @@ def shift_constant(text: str, shift: int, decode: bool = False):
     out = [chr((ord(txt[i]) + shift - 97) % 26 + 97) for i in range(len(txt))]
     
     return ''.join(str(x) for x in out)
+
+def order_chars(text: str):
+    """
+    Takes an input text and returns the order of its characters in the alphabet by
+    representing them with numbers 0 - 26
+    """
+    return [ord(text[x]) - 97 for x in range(len(text))]
+
+def is_coprime(a: int, b: int):
+    """
+    Checks if two numbers are coprime.
+    """
+    return gcd(a, b) == 1
