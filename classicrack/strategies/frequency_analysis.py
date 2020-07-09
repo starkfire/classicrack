@@ -17,10 +17,7 @@ def use_bigram(text: str):
     Cracks an input ciphertext by taking its bigrams and checking for shifted combinations of the bigram 'th'.
         text (str): ciphertext
     """
-    text = parse_text(text)
-    ngrams = get_ngrams(text, 2)
-    bigrams = common_bigrams()
-    match = list(set(ngrams).intersection(bigrams))
+    match = find_ngram_equivalents(text, common_bigrams(), 2)
 
     if (len(match) != 0):
         return [shift_mono(text, distance(match[x][0], 't'), decode=True) for x in range(len(match))]
@@ -32,10 +29,7 @@ def use_trigram(text: str):
     Cracks an input ciphertext by taking its trigrams and checking for shifted combinations of the trigram 'the'.
         text (str): ciphertext
     """
-    text = parse_text(text)
-    ngrams = get_ngrams(text, 3)
-    trigrams = common_trigrams()
-    match = list(set(ngrams).intersection(trigrams))
+    match = find_ngram_equivalents(text, common_trigrams(), 3)
 
     if (len(match) != 0):
         return [shift_mono(text, distance(match[x][2], 'e'), decode=True) for x in range(len(match))]

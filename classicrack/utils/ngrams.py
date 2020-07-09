@@ -36,3 +36,11 @@ def common_trigrams(trigram: str = 'the'):
     """
     trigrams = get_ngram_shifted_combinations(trigram)
     return trigrams
+
+def find_ngram_equivalents(text: str, ngrams: list, n: int):
+    """
+    Converts a text into a set of n-grams, and returns the common
+    n-grams between the n-grams of the text and an input n-gram list.
+    """
+    txt_ngrams = get_ngrams(parse_text(text), n)
+    return list(set(txt_ngrams).intersection(ngrams))
