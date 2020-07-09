@@ -9,28 +9,37 @@
 
 **This library is still a work-in-progress. Some ciphers are not yet implemented, and cryptanalysis modules are still unstable.**
 
-## Install
+## Installation
 ```
 pip install -r requirements.txt
 ```
 
-## Ciphers
-### Caesar
+# Ciphers
+## Affine
+### Example
 ```py
-from classicrack.ciphers import Caesar
+from classicrack.ciphers import Affine
 
-cs = Caesar()
+af = Affine()
 
-# encode
-cs.encode('cheemsburger', 13)
-# decode
-cs.decode('purrzfohetre', 13)
-# crack (bruteforce)
-cs.crack_bruteforce('purrzfohetre')
-# crack (frequency analysis: n-grams)
-cs.crack_ngram('purrzfohetre', 1)
+# encode (plaintext, a, b)
+af.encode('cheemsburger', 5, 8)
+# decode (ciphertext, a, b)
+af.decode('srccqunepmcp', 5, 8)
 ```
-### Atbash
+
+`encode (pt, a, b)`: encrypts the input plaintext using Affine
+  * `pt`: the input plaintext
+  * `a`: a slope value, which must be a positive integer coprime with 26
+  * `b`: an intercept value, which can take any positive integer
+
+`decode (ct, a, b)`: decrypts an input ciphertext using Affine
+  * `ct`: the input ciphertext
+  * `a`: a slope value, which must be a positive integer coprime with 26
+  * `b`: an intercept value, which can take any positive integer
+
+## Atbash
+### Example
 ```py
 from classicrack.ciphers import Atbash
 
@@ -41,7 +50,47 @@ ab.encode('zebras')
 # decode
 ab.decode('avyizh')
 ```
-### ROT13
+
+`encode (pt)`: encrypts the input plaintext using Atbash
+  * `pt`: the input plaintext
+
+`decode (ct)`: decrypts a ciphertext using Atbash
+  * `ct`: the input ciphertext
+
+## Caesar
+### Example
+```py
+from classicrack.ciphers import Caesar
+
+cs = Caesar()
+
+# encode
+cs.encode('cheemsburger', 13)
+# decode
+cs.decode('purrzfohetre', 13)
+# crack: bruteforce
+cs.crack_bruteforce('purrzfohetre')
+# crack: frequency analysis (ciphertext, n)
+cs.crack_ngram('purrzfohetre', 1)
+```
+
+`encode (pt, shift)`: encrypts the input plaintext with Caesar's Cipher
+  * `pt`: the input plaintext
+  * `shift`: a shift value, which can be any positive integer
+
+`decode (ct, a, b)`: decrypts a ciphertext encrypted with Caesar's Cipher
+  * `ct`: the input ciphertext
+  * `shift`: a shift value, which can be any positive integer
+
+`crack_bruteforce (ct)`: returns all possible plaintext values for an input ciphertext using Caesar
+  * `ct`: the input ciphertext
+
+`crack_ngram (ct, n)`: uses frequency analysis (via [n-grams](https://en.wikipedia.org/wiki/N-gram)) to crack a ciphertext
+  * `ct`: the input ciphertext
+  * `n`: number of items for each n-gram (default: 1)
+
+## ROT13
+### Example
 ```py
 from classicrack.ciphers import ROT13
 
@@ -52,3 +101,8 @@ rot.encode('cheemsburger')
 # decode
 rot.decode('purrzfohetre')
 ```
+`encode (pt)`: encrypts the input plaintext with ROT-13
+  * `pt`: the input plaintext
+
+`decode (ct)`: decrypts a ciphertext encrypted with ROT-13
+  * `ct`: the input ciphertext
