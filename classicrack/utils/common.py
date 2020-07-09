@@ -14,23 +14,20 @@ def distance(x: chr, y: chr = 'e'):
     """
     return (ord(x) - ord(y)) % 26
 
-def most_frequent_char(text: str):
+def frequency(text: str):
     """
-    Gets the most frequent character on a given text
+    Returns the frequency of each character in an input text.
     """
     txt = parse_text(text)
     freq = {}
-    
+
     for x in txt:
         freq[x] = (lambda: 1, lambda: freq[x] + 1)[x in freq]()
-    
-    freq = sorted(freq.items(), key=lambda x: x[1], reverse=True)
-    
-    return { 'char': freq[0][0], 'freq': freq[0][1] }
+    return sorted(freq.items(), key=lambda x: x[1], reverse=True)
 
 def shift_mono(text: str, shift: int, decode: bool = False):
     """
-    Shifts all characters of an input text using a constant shift number.
+    Shifts all characters of an input text using a fixed shift number.
     """
     txt = parse_text(text)
     if (decode): shift = -shift
