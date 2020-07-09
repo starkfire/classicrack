@@ -2,6 +2,7 @@
 ### [wip 🛠️] A Python library for implementing and cracking classical ciphers (Atbash, Caesar, ROT13, etc.)
 
 ## Supported Ciphers
+* Affine
 * Atbash
 * Caesar
 * ROT13
