@@ -106,3 +106,16 @@ rot.decode('purrzfohetre')
 
 `decode (ct)`: decrypts a ciphertext encrypted with ROT-13
   * `ct`: the input ciphertext
+
+<hr>
+
+## Notes
+[classicrack](https://github.com/starkfire/classicrack) is part of my learning process in crypto, and as a tool I can use in CTF challenges. It is not meant to be a replacement for similar existing libraries out there.
+
+However, as long as it can be maintained, I might add support for other ciphers and improve its cryptanalysis implementation. The API is not (yet) stable, and plenty of optimizations must still be made.
+
+<hr>
+
+## License
+
+[MIT License]()
