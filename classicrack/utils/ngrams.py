@@ -8,39 +8,32 @@ def get_ngrams(text: str, n: int):
         text (str): input text
         n (int): number of characters for each item
     """
-    text = parse_text(text)
-    return [text[i: i + n] for i in range(len(text) - n + 1)]
+    return [text[i: i + n] for i in range(len(parse_text(text)) - n + 1)]
 
 def get_ngram_shifted_combinations(ngram: str):
     """
     Takes an n-gram and shifts its characters for up to 26 steps
         ngram (str): input n-gram
     """
-    ngrams = []
-    for x in range(26):
-        ngrams.append(shift_mono(ngram, x))
-    return ngrams
+    return [shift_mono(ngram, x) for x in range(26)]
 
 def common_bigrams(bigram: str = 'th'):
     """
     Takes a bigram and returns its shifted combinations.
         bigram (str): an input bigram (e.g. 'th')
     """
-    bigrams = get_ngram_shifted_combinations(bigram)
-    return bigrams
+    return get_ngram_shifted_combinations(bigram)
 
 def common_trigrams(trigram: str = 'the'):
     """
     Takes a trigram and returns its shifted combinations.
         trigram (str): an input trigram (e.g. 'the')
     """
-    trigrams = get_ngram_shifted_combinations(trigram)
-    return trigrams
+    return get_ngram_shifted_combinations(trigram)
 
 def find_ngram_equivalents(text: str, ngrams: list, n: int):
     """
     Converts a text into a set of n-grams, and returns the common
     n-grams between the n-grams of the text and an input n-gram list.
     """
-    txt_ngrams = get_ngrams(parse_text(text), n)
-    return list(set(txt_ngrams).intersection(ngrams))
+    return list(set(get_ngrams(parse_text(text), n)).intersection(ngrams))
