@@ -2,10 +2,10 @@
 ### [wip 🛠️] A Python library for implementing and cracking classical ciphers (Atbash, Caesar, ROT13, etc.)
 
 ## Supported Ciphers
-* Affine
-* Atbash
-* Caesar
-* ROT13
+* [Affine](https://github.com/starkfire/classicrack#affine)
+* [Atbash](https://github.com/starkfire/classicrack#atbash)
+* [Caesar](https://github.com/starkfire/classicrack#caesar)
+* [ROT13](https://github.com/starkfire/classicrack#rot13)
 
 **This library is still a work-in-progress. Some ciphers are not yet implemented, and cryptanalysis modules are still unstable.**
 
