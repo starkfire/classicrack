@@ -10,7 +10,7 @@ def use_unigram(text: str):
     text = parse_text(text)
     most_frequent = most_frequent_char(text)
     shift = distance(most_frequent['char'], 'e')
-    return shift_constant(text, shift)
+    return shift_mono(text, shift)
 
 def use_bigram(text: str):
     """
@@ -23,7 +23,7 @@ def use_bigram(text: str):
     match = list(set(ngrams).intersection(bigrams))
 
     if (len(match) != 0):
-        return [shift_constant(text, distance(match[x][0], 't'), decode=True) for x in range(len(match))]
+        return [shift_mono(text, distance(match[x][0], 't'), decode=True) for x in range(len(match))]
     else:
         return None
 
@@ -38,6 +38,6 @@ def use_trigram(text: str):
     match = list(set(ngrams).intersection(trigrams))
 
     if (len(match) != 0):
-        return [shift_constant(text, distance(match[x][2], 'e'), decode=True) for x in range(len(match))]
+        return [shift_mono(text, distance(match[x][2], 'e'), decode=True) for x in range(len(match))]
     else:
         return None

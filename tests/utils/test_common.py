@@ -11,9 +11,9 @@ class TestCommon(unittest.TestCase):
         most_frequent = most_frequent_char('the quick brown fox jumps over the lazy dog')
         self.assertEqual(most_frequent, { 'char': 'o', 'freq': 4 })
 
-    def test_shift_constant(self):
-        self.assertEqual(shift_constant('cheems burger', 2), 'ejggoudwtigt')
-        self.assertEqual(shift_constant('ejggoudwtigt', 2, decode=True), 'cheemsburger')
+    def test_shift_mono(self):
+        self.assertEqual(shift_mono('cheems burger', 2), 'ejggoudwtigt')
+        self.assertEqual(shift_mono('ejggoudwtigt', 2, decode=True), 'cheemsburger')
 
 if __name__ == '__main__':
     unittest.main()

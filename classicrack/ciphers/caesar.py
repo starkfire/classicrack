@@ -11,13 +11,13 @@ class Caesar:
     """
 
     def encode(self, text: str, shift: int):
-        return shift_constant(parse_text(text), shift)
+        return shift_mono(parse_text(text), shift)
     
     def decode(self, text: str, shift: int):
-        return shift_constant(parse_text(text), shift, decode=True)
+        return shift_mono(parse_text(text), shift, decode=True)
 
     def crack_bruteforce(self, text: str):
-        values = [shift_constant(text, x, decode=True) for x in range(26)]
+        values = [shift_mono(text, x, decode=True) for x in range(26)]
         return values
     
     def crack_ngram(self, text: str, n: int = 1):

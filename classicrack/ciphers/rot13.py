@@ -1,4 +1,4 @@
-from classicrack.utils.common import shift_constant, parse_text
+from classicrack.utils.common import shift_mono, parse_text
 
 class ROT13:
     """
@@ -9,7 +9,7 @@ class ROT13:
     """
 
     def encode(self, text: str):
-        return shift_constant(parse_text(text), 13)
+        return shift_mono(parse_text(text), 13)
     
     def decode(self, text: str):
-        return shift_constant(parse_text(text), 13)
+        return shift_mono(parse_text(text), 13)

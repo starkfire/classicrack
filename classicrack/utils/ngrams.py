@@ -1,6 +1,6 @@
 # utility functions for handling n-grams
 
-from classicrack.utils.common import parse_text, shift_constant
+from classicrack.utils.common import parse_text, shift_mono
 
 def get_ngrams(text: str, n: int):
     """
@@ -18,7 +18,7 @@ def get_ngram_shifted_combinations(ngram: str):
     """
     ngrams = []
     for x in range(26):
-        ngrams.append(shift_constant(ngram, x))
+        ngrams.append(shift_mono(ngram, x))
     return ngrams
 
 def common_bigrams(bigram: str = 'th'):
