@@ -8,8 +8,8 @@ def use_unigram(text: str, unigram: str = 'e'):
     """
     if (len(unigram) != 1): raise ValueError
     text = parse_text(text)
-    most_frequent = frequency(text)[0][0]
-    shift = distance(most_frequent, unigram)
+    sorted_freq = sorted(frequency(text).items(), key=lambda x: x[1], reverse=True)
+    shift = distance(sorted_freq[0][0], unigram)
     return shift_mono(text, shift)
 
 def use_bigram(text: str):

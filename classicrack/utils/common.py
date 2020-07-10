@@ -23,7 +23,7 @@ def frequency(text: str):
 
     for x in txt:
         freq[x] = (lambda: 1, lambda: freq[x] + 1)[x in freq]()
-    return sorted(freq.items(), key=lambda x: x[1], reverse=True)
+    return freq
 
 def shift_mono(text: str, shift: int, decode: bool = False):
     """
