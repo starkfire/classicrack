@@ -25,6 +25,14 @@ def frequency(text: str):
         freq[x] = (lambda: 1, lambda: freq[x] + 1)[x in freq]()
     return freq
 
+def probability_distribution(fd: dict):
+    """
+    Takes a frequency distribution and converts it to a probability distribution.
+        fd (dict): frequency distribution of characters in a text
+    """
+    total = sum(fd[x] for x in fd)
+    return {x: fd[x] / total for x in fd}
+
 def shift_mono(text: str, shift: int, decode: bool = False):
     """
     Shifts all characters of an input text using a fixed shift number.
