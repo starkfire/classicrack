@@ -11,8 +11,9 @@ class TestCommon(unittest.TestCase):
         self.assertEqual(dist, 5)
 
     def test_frequency(self):
-        most_frequent = frequency('the quick brown fox jumps over the lazy dog')
-        self.assertEqual(most_frequent[0][0], 'o')
+        freq = frequency('the quick brown fox jumps over the lazy dog')
+        most_freq = sorted(freq.items(), key=lambda x: x[1], reverse=True)
+        self.assertEqual(most_freq[0][0], 'o')
 
     def test_shift_mono(self):
         self.assertEqual(shift_mono('cheems burger', 2), 'ejggoudwtigt')
