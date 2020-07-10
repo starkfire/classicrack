@@ -1,13 +1,18 @@
 # classicrack
 ### [wip 🛠️] A Python library for implementing and cracking classical ciphers (Atbash, Caesar, ROT13, etc.)
 
+**This library is still a work-in-progress and is open for contributions. Some ciphers are not yet implemented, and cryptanalysis modules are still unstable.**
+
 ## Supported Ciphers
 * [Affine](https://github.com/starkfire/classicrack#affine)
 * [Atbash](https://github.com/starkfire/classicrack#atbash)
 * [Caesar](https://github.com/starkfire/classicrack#caesar)
 * [ROT13](https://github.com/starkfire/classicrack#rot13)
 
-**This library is still a work-in-progress. Some ciphers are not yet implemented, and cryptanalysis modules are still unstable.**
+## Cryptanalysis (unstable)
+* Frequency Analysis
+  * Ngram Statistics
+  * Chi-Square Test
 
 ## Installation
 ```
@@ -110,7 +115,7 @@ rot.decode('purrzfohetre')
 <hr>
 
 ## Notes
-[classicrack](https://github.com/starkfire/classicrack) is part of my learning process in crypto, and as a tool I can use in CTF challenges. It is not meant to be a replacement for similar existing libraries out there.
+[classicrack](https://github.com/starkfire/classicrack) is part of my learning process in crypto, and was made as a tool I can use in CTF challenges. It is not meant to be a replacement for similar existing libraries out there (but it kinda works though, so...).
 
 However, as long as it can be maintained, I might add support for other ciphers and improve its cryptanalysis implementation. The API is not (yet) stable, and plenty of optimizations must still be made.
 
