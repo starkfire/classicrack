@@ -1,4 +1,6 @@
 # classicrack
+[![Documentation Status](https://readthedocs.org/projects/classicrack/badge/?version=latest)](https://classicrack.readthedocs.io/en/latest/?badge=latest)
+
 ### [wip 🛠️] A Python library for implementing and cracking classical ciphers (Atbash, Caesar, ROT13, etc.)
 
 **This library is still a work-in-progress and is open for contributions. Some ciphers are not yet implemented, and cryptanalysis modules are still unstable.**
@@ -8,11 +10,6 @@
 * [Atbash](https://github.com/starkfire/classicrack#atbash)
 * [Caesar](https://github.com/starkfire/classicrack#caesar)
 * [ROT13](https://github.com/starkfire/classicrack#rot13)
-
-## Cryptanalysis (unstable)
-* Frequency Analysis
-  * Ngram Statistics
-  * Chi-Square Test
 
 ## Installation
 ```
