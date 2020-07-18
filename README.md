@@ -115,4 +115,4 @@ rot.decode('purrzfohetre')
 
 ## License
 
-[MIT License]()
+[MIT License](https://github.com/starkfire/classicrack/blob/master/LICENSE.md)
