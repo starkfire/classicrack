@@ -10,7 +10,7 @@ class Atbash:
 
     def encode(self, text: str):
         """
-        Encode an input text using Atbash.
+        Encipher an input plaintext using Atbash.
             text (str): input text
         """
         text = parse_text(text)
@@ -19,7 +19,7 @@ class Atbash:
     
     def decode(self, text: str):
         """
-        Decode an input text using Atbash.
+        Decipher an input Atbash ciphertext.
             text (str): input text
         """
         text = parse_text(text)

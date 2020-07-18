@@ -9,7 +9,13 @@ class ROT13:
     """
 
     def encode(self, text: str):
+        """
+        Encipher an input plaintext using ROT-13.
+        """
         return shift_mono(parse_text(text), 13)
     
     def decode(self, text: str):
+        """
+        Decipher an input ROT-13 ciphertext.
+        """
         return shift_mono(parse_text(text), 13)

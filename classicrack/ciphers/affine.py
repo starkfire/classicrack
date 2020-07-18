@@ -16,18 +16,35 @@ class Affine:
             if (slope * i) % 26 == 1: return i
 
     def encode(self, text: str, slope: int, intercept: int):
+        """
+        Enciphers an input plaintext using Affine Cipher.
+            text (str): input plaintext
+            slope (int): slope value (must be coprime with 26)
+            intercept (int): intercept value
+        """
         if not self.coprime(slope): raise ValueError('slope is not coprime with 26')
         x = order_chars(parse_text(text))
         ct = [chr((slope * x[i] + intercept) % 26 + 97) for i in range(len(x))]
         return ''.join(str(x) for x in ct)
     
     def decode(self, text: str, slope: int, intercept: int):
+        """
+        Deciphers an input Affine ciphertext.
+            text (str): input ciphertext
+            slope (int): slope value (must be coprime with 26)
+            intercept (int): intercept value
+        """
         inv = self.get_inverse(slope)
         x = order_chars(parse_text(text))
         pt = [chr((inv * (x[i] - intercept)) % 26 + 97) for i in range(len(x))]
         return ''.join(str(x) for x in pt)
     
     def crack(self, text: str):
+        """
+        Cracks an input Affine ciphertext, and returns 
+        plaintext values with acceptable fitness scores.
+            text (str): input ciphertext
+        """
         print("Cracking...\n")
 
         primes = [1, 3, 5, 7, 9, 11, 15, 17, 19, 21, 23, 25]
