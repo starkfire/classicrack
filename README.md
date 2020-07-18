@@ -1,4 +1,5 @@
 # classicrack
+[![MIT license](https://img.shields.io/badge/License-MIT-blue.svg)](https://lbesson.mit-license.org/)
 [![Documentation Status](https://readthedocs.org/projects/classicrack/badge/?version=latest)](https://classicrack.readthedocs.io/en/latest/?badge=latest)
 
 ### [wip 🛠️] A Python library for implementing and cracking classical ciphers (Atbash, Caesar, ROT13, etc.)
