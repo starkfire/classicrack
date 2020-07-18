@@ -1,1 +1,1 @@
--e git+https://github.com/starkfire/classicrack.git@c1aa96ab52d0a3254a5b2873d0edcad87a1ba011#egg=classicrack
+-e git+https://github.com/starkfire/classicrack.git@2a81bfe6423fb8500413c01a2e9fc5ea4997b581#egg=classicrack
