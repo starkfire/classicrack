@@ -3,6 +3,17 @@ from classicrack.fitness.chi_squared import chi_squared
 from classicrack.ngrams.monograms import monograms
 
 class Affine:
+    """
+    Affine cipher is a monoalphabetic substitution cipher 
+    that uses the following encryption function::
+
+        E(x) = (ax + b) mod m
+    
+    It is decrypted by taking the modular multiplicative
+    inverse ``inv`` of the slope value ``a``::
+
+        D(x) = inv * (x - b) mod m
+    """
 
     # check if slope is coprime with 26
     def coprime(self, slope: int):
@@ -18,9 +29,10 @@ class Affine:
     def encode(self, text: str, slope: int, intercept: int):
         """
         Enciphers an input plaintext using Affine Cipher.
-            text (str): input plaintext
-            slope (int): slope value (must be coprime with 26)
-            intercept (int): intercept value
+
+        :param text: input plaintext
+        :param slope: slope value, which must be coprime with 26
+        :param intercept: intercept value
         """
         if not self.coprime(slope): raise ValueError('slope is not coprime with 26')
         x = order_chars(parse_text(text))
@@ -30,9 +42,10 @@ class Affine:
     def decode(self, text: str, slope: int, intercept: int):
         """
         Deciphers an input Affine ciphertext.
-            text (str): input ciphertext
-            slope (int): slope value (must be coprime with 26)
-            intercept (int): intercept value
+
+        :param text: input ciphertext
+        :param slope: slope value, which must be coprime with 26
+        :param intercept: intercept value
         """
         inv = self.get_inverse(slope)
         x = order_chars(parse_text(text))
@@ -41,9 +54,10 @@ class Affine:
     
     def crack(self, text: str):
         """
-        Cracks an input Affine ciphertext, and returns 
-        plaintext values with acceptable fitness scores.
-            text (str): input ciphertext
+        Cracks an input Affine ciphertext by generating all 312 possible values,
+        and returns plaintext values with acceptable fitness scores.
+        
+        :param text: input ciphertext
         """
         print("Cracking...\n")
 

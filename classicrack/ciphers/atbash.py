@@ -2,16 +2,17 @@ from classicrack.utils.common import parse_text
 
 class Atbash:
     """
-    Atbash implementation.
-    >>> ab = Atbash()
-    >>> ab.encode('zebras')
-    >>> ab.decode('avyizh')
+    Atbash is a monoalphabetic substitution cipher that is similar to Affine Cipher.
+    Unlike Affine, Atbash takes the following function for encryption and decryption::
+
+        E(x) = D(x) = (-x mod m) + 1
     """
 
     def encode(self, text: str):
         """
         Encipher an input plaintext using Atbash.
-            text (str): input text
+        
+        :param text: input plaintext
         """
         text = parse_text(text)
         out = [chr(122 - ord(text[i]) + 97) for i in range(len(text))]
@@ -20,7 +21,8 @@ class Atbash:
     def decode(self, text: str):
         """
         Decipher an input Atbash ciphertext.
-            text (str): input text
+
+        :param text: input ciphertext
         """
         text = parse_text(text)
         out = [chr(122 - ord(text[i]) + 97) for i in range(len(text))]

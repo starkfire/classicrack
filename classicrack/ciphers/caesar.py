@@ -5,24 +5,25 @@ from classicrack.fitness.chi_squared import chi_squared
 
 class Caesar:
     """
-    Caesar Cipher Implementation.
-    >>> cs = Caesar()
-    >>> cs.encode('purrzfoheztre')
+    Caesar Cipher is a monoalphabetic substitution cipher where
+    characters are shifted with a fixed shift value of ``n mod 26``.
     """
 
     def encode(self, text: str, shift: int):
         """
         Enciphers an input plaintext using Caesar.
-            text (str): input plaintext
-            shift (int): shift value
+        
+        :param text: input plaintext
+        :param shift: shift value
         """
         return shift_mono(parse_text(text), shift)
     
     def decode(self, text: str, shift: int):
         """
         Deciphers an input Caesar ciphertext.
-            text (str): input plaintext
-            shift (int): shift value
+        
+        :param text: input ciphertext
+        :param shift: shift value
         """
         return shift_mono(parse_text(text), shift, decode=True)
 
@@ -30,7 +31,8 @@ class Caesar:
         """
         Cracks an input Caesar ciphertext and returns 
         plaintext values with acceptable fitness scores.
-            text (str): input plaintext
+        
+        :param text: input plaintext
         """
         print("Cracking...\n")
         ctxts = [shift_mono(text, x, decode=True) for x in range(26)]
