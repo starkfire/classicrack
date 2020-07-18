@@ -4,8 +4,6 @@
 
 ### [wip 🛠️] A Python library for implementing and cracking classical ciphers (Atbash, Caesar, ROT13, etc.)
 
-**This library is still a work-in-progress and is open for contributions. Some ciphers are not yet implemented, and cryptanalysis modules are still unstable.**
-
 ## Supported Ciphers
 * [Affine](https://github.com/starkfire/classicrack#affine)
 * [Atbash](https://github.com/starkfire/classicrack#atbash)
@@ -29,6 +27,8 @@ af = Affine()
 af.encode('cheemsburger', 5, 8)
 # decode (ciphertext, a, b)
 af.decode('srccqunepmcp', 5, 8)
+# crack (ciphertext)
+af.crack('srccqunepmcp')
 ```
 
 `encode (pt, a, b)`: encrypts the input plaintext using Affine
@@ -40,6 +40,9 @@ af.decode('srccqunepmcp', 5, 8)
   * `ct`: the input ciphertext
   * `a`: a slope value, which must be a positive integer coprime with 26
   * `b`: an intercept value, which can take any positive integer
+
+`crack (ct)`: cracks an input Affine ciphertext
+  * `ct`: the input ciphertext
 
 ## Atbash
 ### Example
@@ -109,15 +112,6 @@ rot.decode('purrzfohetre')
 
 `decode (ct)`: decrypts a ciphertext encrypted with ROT-13
   * `ct`: the input ciphertext
-
-<hr>
-
-## Notes
-[classicrack](https://github.com/starkfire/classicrack) is part of my learning process in crypto, and was made as a tool I can use in CTF challenges. It is not meant to be a replacement for similar existing libraries out there (but it kinda works though, so...).
-
-However, as long as it can be maintained, I might add support for other ciphers and improve its cryptanalysis implementation. The API is not (yet) stable, and plenty of optimizations must still be made.
-
-<hr>
 
 ## License
 
