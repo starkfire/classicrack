@@ -1,5 +1,5 @@
 # classicrack
-[![MIT license](https://img.shields.io/badge/License-MIT-blue.svg)](https://lbesson.mit-license.org/)
+[![MIT license](https://img.shields.io/badge/License-MIT-blue.svg)](https://github.com/starkfire/classicrack/blob/master/LICENSE.md)
 [![Documentation Status](https://readthedocs.org/projects/classicrack/badge/?version=latest)](https://classicrack.readthedocs.io/en/latest/?badge=latest)
 
 ### [wip 🛠️] A Python library for implementing and cracking classical ciphers (Atbash, Caesar, ROT13, etc.)
@@ -14,6 +14,12 @@
 ```
 pip install -r requirements.txt
 ```
+
+# Cryptanalysis
+
+For cracking, cipher implementations have a `crack()` method. Implementations of some ciphers, such as ROT-13 and Atbash do not have it, since the `decode()` method already performs the same task.
+
+So far, classicrack can only perform cryptanalysis on ciphers with keyspace weaknesses (e.g. Affine, Caesar). Implementations for other ciphers such as Vigenere might be added soon.
 
 # Ciphers
 ## Affine
