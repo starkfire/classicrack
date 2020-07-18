@@ -1,4 +1,6 @@
-from classicrack.utils.common import order_chars, parse_text, is_coprime
+from classicrack.utils.common import *
+from classicrack.fitness.chi_squared import chi_squared
+from classicrack.ngrams.monograms import monograms
 
 class Affine:
 
@@ -24,3 +26,22 @@ class Affine:
         x = order_chars(parse_text(text))
         pt = [chr((inv * (x[i] - intercept)) % 26 + 97) for i in range(len(x))]
         return ''.join(str(x) for x in pt)
+    
+    def crack(self, text: str):
+        print("Cracking...\n")
+
+        primes = [1, 3, 5, 7, 9, 11, 15, 17, 19, 21, 23, 25]
+        ctxts = []
+        for x in primes:
+            for y in range(0, 26):
+                ctxts.append(self.decode(text, x, y))
+        results = chi_squared(ctxts, monograms)
+        sorted_results = sorted(results.items(), key=lambda x: x[1])
+
+        # show top 5 results
+        print("CHI-SQUARE TEST (Top 5)")
+        print("=======================")
+        for x in range(5):
+            print(str(round(sorted_results[x][1], 5)) + ': ' + str(sorted_results[x][0]) + '\n')
+        
+        return "Done."
