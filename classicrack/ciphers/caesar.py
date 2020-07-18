@@ -1,7 +1,8 @@
 from classicrack.utils.common import *
 from classicrack.utils.ngrams import *
 
-from classicrack.strategies import frequency_analysis as fa
+from classicrack.ngrams.monograms import monograms
+from classicrack.fitness.chi_squared import chi_squared
 
 class Caesar:
     """
@@ -16,17 +17,15 @@ class Caesar:
     def decode(self, text: str, shift: int):
         return shift_mono(parse_text(text), shift, decode=True)
 
-    def crack_bruteforce(self, text: str):
-        values = [shift_mono(text, x, decode=True) for x in range(26)]
-        return values
-    
-    def crack_ngram(self, text: str, n: int = 1):
-        text = parse_text(text)
+    def crack(self, text: str):
+        print("Cracking...\n")
+        ctxts = [shift_mono(text, x, decode=True) for x in range(26)]
+        results = chi_squared(ctxts, monograms)
+        sorted_results = sorted(results.items(), key=lambda x: x[1])
 
-        fa_strategy = {
-            1: fa.use_unigram(text),
-            2: fa.use_bigram(text),
-            3: fa.use_trigram(text),
-        }
-
-        return fa_strategy.get(n, 'Invalid or unsupported n-value')
+        print("CHI-SQUARE TEST (Top 5)")
+        print("=======================")
+        for x in range(5):
+            print(str(round(sorted_results[x][1], 5)) + ': ' + str(sorted_results[x][0]) + '\n')
+        
+        return "Done."
