@@ -74,10 +74,8 @@ cs = Caesar()
 cs.encode('cheemsburger', 13)
 # decode
 cs.decode('purrzfohetre', 13)
-# crack: bruteforce
-cs.crack_bruteforce('purrzfohetre')
-# crack: frequency analysis (ciphertext, n)
-cs.crack_ngram('purrzfohetre', 1)
+# crack
+cs.crack('purrzfohetre')
 ```
 
 `encode (pt, shift)`: encrypts the input plaintext with Caesar's Cipher
@@ -88,12 +86,8 @@ cs.crack_ngram('purrzfohetre', 1)
   * `ct`: the input ciphertext
   * `shift`: a shift value, which can be any positive integer
 
-`crack_bruteforce (ct)`: returns all possible plaintext values for an input ciphertext using Caesar
+`crack (ct)`: cracks an input Caesar ciphertext
   * `ct`: the input ciphertext
-
-`crack_ngram (ct, n)`: uses frequency analysis (via [n-grams](https://en.wikipedia.org/wiki/N-gram)) to crack a ciphertext
-  * `ct`: the input ciphertext
-  * `n`: number of items for each n-gram (default: 1)
 
 ## ROT13
 ### Example
