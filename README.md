@@ -10,6 +10,9 @@
 * [Caesar](https://github.com/starkfire/classicrack#caesar)
 * [ROT13](https://github.com/starkfire/classicrack#rot13)
 
+## Documentation
+Full Docs: https://classicrack.readthedocs.io/en/latest/
+
 ## Installation
 ```
 pip install -r requirements.txt
