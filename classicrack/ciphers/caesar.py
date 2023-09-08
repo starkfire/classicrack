@@ -1,4 +1,4 @@
-from classicrack.utils.common import shift_mono
+from classicrack.utils.common import shift_mono, parse_text
 
 from classicrack.ngrams.monograms import monograms
 from classicrack.fitness.chi_squared import chi_squared
